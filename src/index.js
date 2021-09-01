@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+class App extends React.Component {
+    // That's it
+    render() {
+        window.navigator.geolocation.getCurrentPosition(
+            (position) => console.log(position),
+            (err) => console.log(err)
+        );
+        return <div>Latitude: </div>;
+    }
+}
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// const App = () => {
+//     // async
+//     // popup allow or not
+//     window.navigator.geolocation.getCurrentPosition(
+//         (position) => console.log(position),
+//         (err) => console.log(err)
+//     );
+//     // Class if use func comp
+//     return <h1>Latitude: </h1>;
+// };
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.getElementById("root"));
